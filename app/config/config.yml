@@ -1,0 +1,120 @@
+################################################################################
+## This is the main config file to configure the various bundles
+################################################################################
+
+# import other config files
+imports:
+
+    - { resource : parameters.yml }
+    - { resource : bundles.yml }
+
+# ------------------------------------------------------------------------------
+# @conga/framework
+#
+# This is the core framework bundle which provides the service container,
+# routing, annotation parsing, express server, etc.
+# ------------------------------------------------------------------------------
+framework:
+
+    # application settings
+    app:
+        host:  "%app.http.host%"
+        port:  "%app.http.port%"
+
+# ------------------------------------------------------------------------------
+# @conga/framework-webpack
+#
+# This bundle provides webpack middleware for in-memory compilation and hot
+# reloading in development mode. It also provides the "conga webpack:compile"
+# command to compile the final production files with cache busted filenames
+# ------------------------------------------------------------------------------
+webpack:
+
+    # turn development mode on/off (dev middleware / hot reloading)
+    development: true
+
+    # the public path to publish files in dev mode under
+    public.path: /build/
+
+    # the paths to all the config files
+    config.paths:
+        - "frontend-bundle:resources/public/webpack/webpack.common.js"
+
+# ------------------------------------------------------------------------------
+# @conga/framework-bass
+#
+# This bundle includes and configures the bass ORM/ODM which provides adapters
+# to a variety of storage engines including MySQL/PostgreSQL/MongoDB/Redis/NeDB
+# ------------------------------------------------------------------------------
+bass:
+
+    # the adapters
+    adapters:
+        - bass-nedb
+
+    # the db connections
+    connections:
+
+        nedb.default:
+            adapter:  bass-nedb
+            directory: "%kernel.var_path%/data/nedb"
+
+    # the managers
+    managers:
+
+        nedb.default:
+            adapter:    bass-nedb
+            connection: nedb.default
+            documents:
+                api-bundle: api-bundle:model
+
+            # # attach the custom listener services
+            # listeners:
+            #     user.listener:
+            #         name: user.listener
+            #         listener: '@user.listener'
+            #         events:
+            #             prePersist: onPrePersist
+            #             preUpdate: onPreUpdate
+
+# ------------------------------------------------------------------------------
+# @conga/framework-rest
+#
+# This bundle allows you to create controllers which automatically provide
+# RESTful actions which are associated with annotated resource entities which
+# are automatically serialized to standard or custom specifications
+# ------------------------------------------------------------------------------
+rest:
+
+    # how the resource attributes should be serialized (snake, camel, hypen)
+    attribute.inflection: snake
+
+    # paths to look for annotated resource classes
+    model:
+        paths:
+            - api-bundle:model
+
+    # the specification class to use
+    specification: "@conga/framework-rest:specification/json-api/JsonApiRestSpecification"
+
+# ------------------------------------------------------------------------------
+# @conga/framework-view
+#
+# This bundle provides the @Template annotation in controllers to automatically
+# render an action using an attached templating engine (twig.js by default)
+# ------------------------------------------------------------------------------
+view:
+
+    # the default engine to use when one isn't specified in @Template
+    default.engine: twig
+
+# ------------------------------------------------------------------------------
+# @conga/framework-validation
+#
+# This bundle provides the various @Assert:* annotation to add validation rules
+# to models/resources
+# ------------------------------------------------------------------------------
+#validation:
+
+#    paths:
+#        - api-bundle:model
