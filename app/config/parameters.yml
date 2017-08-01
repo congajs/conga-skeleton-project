@@ -1,8 +1,0 @@
-################################################################################
-## This file contains the environment specific config variables
-################################################################################
-
-parameters:
-
-    app.http.host: localhost
-    app.http.port: 3000

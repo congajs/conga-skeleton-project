@@ -1,5 +1,3 @@
+app/config/parameters.yml
 node_modules
 var/*/*
-app/logs/*
-app/public/build/
-
