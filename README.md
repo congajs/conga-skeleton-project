@@ -13,6 +13,10 @@ Change in to directory and install npm dependencies:
     $ cd my-project
     $ npm install
 
+Create the parameters config file:
+
+    $ cp app/config/parameters.yml.dist app/config/parameters.yml
+
 To start up the application, run:
 
     $ npm start
