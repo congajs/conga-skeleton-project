@@ -9,7 +9,7 @@
       "start": "node app/app.js",
       "build": "node app/build.js",
       "watch": "nodemon app/app.js",
-      "test": "jasmine"
+      "test": "./node_modules/jasmine/bin/jasmine.js"
   },
   "dependencies": {
     "@conga/framework": "^2.0.0"
