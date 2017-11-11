@@ -2,4 +2,5 @@ app/config/parameters.yml
 node_modules
 var/*/*
 app/public/build/*
+app/public/bundles/@conga/*
 app/public/dist/*
