@@ -12,7 +12,9 @@
       "test": "./node_modules/jasmine/bin/jasmine.js"
   },
   "dependencies": {
-    "@conga/framework": "^2.0.0"
+    "@conga/framework": "^2.0.0",
+    "@conga/framework-dashboard": "^2.0.0",
+    "@conga/framework-webpack": "congajs/conga-webpack#dashboard"
   },
   "devDependencies": {
       "jasmine": "^2.6.0",

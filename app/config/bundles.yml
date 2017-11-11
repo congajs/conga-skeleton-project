@@ -18,5 +18,8 @@ bundles:
         # - "@conga/framework-rest"
         # - "@conga/framework-validation"
 
+        - "@conga/framework-webpack"
+
     # add bundles that are only used for development
     development:
+        - "@conga/framework-dashboard"

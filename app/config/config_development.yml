@@ -13,3 +13,11 @@ framework:
         default:
             type: console
             level: DEBUG
+
+webpack:
+
+    # turn development mode on/off (dev middleware / hot reloading)
+    development: true
+
+    # the public path to publish files in dev mode under
+    public.path: /dist/
