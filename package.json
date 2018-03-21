@@ -4,20 +4,23 @@
   "private": true,
   "description": "This is a minimal project to get started with conga.js",
   "license": "UNLICENSED",
+  "engines": {
+    "node": "8.0.0"
+  },
   "main": "",
   "scripts": {
-      "start": "node app/app.js",
-      "build": "node app/build.js",
-      "watch": "nodemon app/app.js",
-      "test": "./node_modules/jasmine/bin/jasmine.js"
+    "start": "node app/app.js",
+    "build": "node app/build.js",
+    "watch": "nodemon app/app.js",
+    "test": "./node_modules/jasmine/bin/jasmine.js"
   },
   "dependencies": {
     "@conga/framework": "^2.0.0"
   },
   "devDependencies": {
-      "jasmine": "^2.6.0",
-      "nodemon": "^1.11.0",
-      "request": "^2.81.0"
+    "jasmine": "^2.6.0",
+    "nodemon": "^1.11.0",
+    "request": "^2.81.0"
   },
   "readmeFilename": "README.md"
 }
